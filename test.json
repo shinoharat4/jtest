@@ -4,7 +4,10 @@
         {
             "value": "value 0"
         },
-        "value 1"
+        "value 1",
+        {
+            "value2": "value 2"
+        }
     ],
     "obj": {
         "value1": "value1",
