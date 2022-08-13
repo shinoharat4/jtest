@@ -28,7 +28,7 @@ jobs:
         with:
           filename: 'test.json'
           prefix: test
-          masked: true
+          masked: false
       - name: Show output
         run: echo "The time was ${{ env.test_value }}, ${{ env.test_array_0_value }}, ${{ env.test_obj_value1 }}"
       
