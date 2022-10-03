@@ -1,16 +1,16 @@
 {
-    "value": "value",
-    "array": [
-        {
-            "value": "value 0"
-        },
-        "value 1",
-        {
-            "value2": "value 2"
-        }
-    ],
-    "obj": {
-        "value1": "value1",
-        "value2": "value2"
+  "value": "1000",
+  "array": [
+    {
+      "value": "value 0"
+    },
+    "value 1",
+    {
+      "value2": "value 2"
     }
+  ],
+  "obj": {
+    "value1": "value1",
+    "value2": "value2"
+  }
 }
