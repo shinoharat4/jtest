@@ -41,17 +41,9 @@ jobs:
           field: value
           value: 1000
       
-      - name: Commit files
-        run: |
-          git config --local user.email "shinoharat4@gmail.com"
-          git config --local user.name "shinoharat4"
-          git add -A
-          git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
-          git tag ${{ steps.semantic_release_info.outputs.git_tag }}
-        
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Git Commit and Push
+        uses: github-actions-x/commit@v2.9
         with:
-          github_token: ${{ github.token }}
-          tags: true
-    
+          # Github Token with commit access
+          github-token: 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
+          
