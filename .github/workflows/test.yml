@@ -9,6 +9,8 @@ on:
 
 jobs:
   build1:
+    strategy:
+      max-parallel: 1
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,8 +27,9 @@ jobs:
         run: echo "The time was ${{ env.test_value }}, ${{ env.test_array_0_value }}, ${{ env.test_obj_value1 }}"
 
   build2:
+    strategy:
+      max-parallel: 1
     runs-on: windows-latest
-    needs: build1
     steps:
       - uses: actions/checkout@v3
       
