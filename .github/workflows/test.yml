@@ -38,8 +38,15 @@ jobs:
         uses: jossef/action-set-json-field@v2
         with:
           file: test.json
-          field: value
-          value: 1000
+          field: 'obj.value'
+          value: 1001
+      
+      - name: Update package.json version
+        uses: jossef/action-set-json-field@v2
+        with:
+          file: test.json
+          field: 'array.0.value'
+          value: 1002
       
       - name: Show output
         run: echo "The time was ${{ env.json_value }}, ${{ env.json_array_0_value }}, ${{ env.json_obj_value1 }}"
