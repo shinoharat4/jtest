@@ -13,29 +13,26 @@ jobs:
       max-parallel: 1
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo Hello, world!
-
+      - uses: actions/checkout@v2
+      
       - name: JSON to variables
         uses: rgarcia-phi/json-to-variables@v1.1.0
         with:
           filename: '${{ github.event.inputs.filename }}'
           prefix: json
           masked: false
+      
       - name: Show output
-        run: echo "The time was ${{ env.test_value }}, ${{ env.test_array_0_value }}, ${{ env.test_obj_value1 }}"
+        run: echo "The time was ${{ env.json_value }}, ${{ env.json_array_0_value }}, ${{ env.json_obj_value1 }}"
 
   build2:
-    strategy:
-      max-parallel: 1
     runs-on: windows-latest
+    needs: build1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       
       - name: Show output
-        run: echo "The time was ${{ env.test_value }}, ${{ env.test_array_0_value }}, ${{ env.test_obj_value1 }}"
-      
+        run: echo "The time was ${{ env.json_value }}, ${{ env.json_array_0_value }}, ${{ env.json_obj_value1 }}"
       
       - name: Update package.json version
         uses: jossef/action-set-json-field@v2
@@ -44,9 +41,16 @@ jobs:
           field: value
           value: 1000
       
-      - name: Git Commit and Push
-        uses: github-actions-x/commit@v2.9
-        with:
-          # Github Token with commit access
-          github-token: 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
+      - name: Show output
+        run: echo "The time was ${{ env.json_value }}, ${{ env.json_array_0_value }}, ${{ env.json_obj_value1 }}"
+      
+      - name: Create report file
+        run: echo %date% >report.txt
+      
+      - name: Commit report
+        run: |
+          git config --global user.name 'shinoharat4'
+          git config --global user.email 'shinoharat4@gmail.com'
+          git commit -am "Automated report"
+          git push
           
