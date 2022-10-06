@@ -2,7 +2,7 @@
   "value": "1000",
   "array": [
     {
-      "value": "value 0"
+      "value": "1002"
     },
     "value 1",
     {
@@ -11,6 +11,7 @@
   ],
   "obj": {
     "value1": "value1",
-    "value2": "value2"
+    "value2": "value2",
+    "value": "1001"
   }
 }
