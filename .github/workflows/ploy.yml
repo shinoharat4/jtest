@@ -2,6 +2,9 @@ name: My Workflow
 
 on: 
   workflow_dispatch:
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.AUTOTEST_PRIME_123 }}
 
 jobs:
   build:
@@ -13,7 +16,6 @@ jobs:
     - name: Set environment variables
       run: |
         echo "Setting environment variables..."
-        echo "::set-env name=MY_VAR::${{ vars:PRIME_123 }}"
         echo "::set-env name=ANOTHER_VAR::${{ secrets.PRIME_PASS }}"
 
     - name: Run build
