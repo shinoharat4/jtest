@@ -2,13 +2,14 @@ name: My Workflow
 
 on: 
   workflow_dispatch:
-env:
-  # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.AUTOTEST_PRIME_123 }}
+
 
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      # Setting an environment variable with the value of a configuration variable
+      env_var: "${{ vars.PRIME_123 }}"
     steps:
     - name: Run build
       run: |
