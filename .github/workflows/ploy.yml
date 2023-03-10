@@ -11,8 +11,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Echo environment variable
+      run: |
+        echo "AUTOTEST variable: $AUTOTEST_PRIME_123"
+
+    - name: Echo secret
+      run: |
+        echo "PRIME_PASS secret: ${{ secrets.PRIME_PASS }}"
+    
     - name: Run build
       run: |
         echo "Running build..."
-        echo "$env:PRIME_PASS"
+        echo "$PRIME_PASS"
         echo "$env:PRIME_123"
+        echo "$AUTOTEST:PRIME_123"
+        echo "${{ secrets.PRIME_PASS }}"
+        
