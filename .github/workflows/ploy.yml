@@ -6,20 +6,18 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    environment: AUTOTEST
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Echo secret
+    - name: Set environment variables
       run: |
-        echo "PRIME_PASS secret: ${{ secrets.PRIME_PASS }}"
-    
+        echo "Setting environment variables..."
+        echo "::set-env name=MY_VAR::${{ env:PRIME_123 }}"
+        echo "::set-env name=ANOTHER_VAR::${{ secrets.PRIME_PASS }}"
+
     - name: Run build
       run: |
         echo "Running build..."
-        echo "$PRIME_PASS"
-        #echo "${{ env:PRIME_123 }}"
-        echo "${{ AUTOTEST:PRIME_123 }}"
-        echo "${{ secrets.PRIME_PASS }}"
-        
+        echo "MY_VAR: $env:MY_VAR"
+        echo "ANOTHER_VAR: $env:ANOTHER_VAR"
