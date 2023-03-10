@@ -1,0 +1,17 @@
+name: My Workflow
+
+on: push
+
+jobs:
+  build:
+    runs-on: windows-latest
+    environment: AUTOTEST
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run build
+      run: |
+        echo "Running build..."
+        echo "$env:PRIME_PASS"
+        echo "$env:PRIME_123"
