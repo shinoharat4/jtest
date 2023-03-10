@@ -10,16 +10,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set environment variables
-      run: |
-        echo "Setting environment variables..."
-        echo "::set-env name=ANOTHER_VAR::${{ secrets.PRIME_PASS }}"
-
     - name: Run build
       run: |
         echo "Running build..."
-        echo "MY_VAR: $env:MY_VAR"
-        echo "ANOTHER_VAR: $env:ANOTHER_VAR"
+        echo "${{ env.env_var }}"
+      
