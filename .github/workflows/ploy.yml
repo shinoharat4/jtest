@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    environment: AUTOTEST
     env:
       # Setting an environment variable with the value of a configuration variable
       env_var: "${{ vars.PRIME_123 }}"
