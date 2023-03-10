@@ -11,9 +11,11 @@ jobs:
     env:
       # Setting an environment variable with the value of a configuration variable
       env_var: "${{ vars.PRIME_123 }}"
+      env_sec: "${{ secrets.PRIME_PASS }}"
     steps:
     - name: Run build
       run: |
         echo "Running build..."
         echo "${{ env.env_var }}"
+        echo "${{ secrets.PRIME_PASS}}"
       
