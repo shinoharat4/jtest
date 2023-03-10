@@ -13,7 +13,7 @@ jobs:
 
     - name: Echo environment variable
       run: |
-        echo "AUTOTEST variable: $AUTOTEST_PRIME_123"
+        echo "AUTOTEST variable: ${{ AUTOTEST.PRIME_123 }}"
 
     - name: Echo secret
       run: |
@@ -23,7 +23,7 @@ jobs:
       run: |
         echo "Running build..."
         echo "$PRIME_PASS"
-        echo "$env:PRIME_123"
-        echo "$AUTOTEST:PRIME_123"
+        echo "${{ env:PRIME_123 }}"
+        echo "${{ AUTOTEST:PRIME_123 }}"
         echo "${{ secrets.PRIME_PASS }}"
         
